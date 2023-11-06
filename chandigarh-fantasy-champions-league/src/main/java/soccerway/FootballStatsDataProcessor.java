@@ -20,7 +20,7 @@ public class FootballStatsDataProcessor {
         driver.manage().window().maximize();
         driver.get(Pathways.UCL_PAGE);
 
-        System.out.println("Team Name\t#\tName\tAge\tPosition\tMinutes\tAppearance\tLineups\tSub-In\tSub Out\tSub On Bench\tGoals\tAssists\tYellow\tSecond Yellow\tRed");
+        System.out.println("Team Name\t#\tName\tAge\tPosition\tMinutes\tAppearance\tLineups\tSub-In\tSub-Out\tSub On Bench\tGoals\tAssists\tYellow\tSecond Yellow\tRed");
 
         List<WebElement> listOfTeamURLs = driver.findElements(By.xpath(Pathways.XPATH_ALL_UCL_TEAMS_URLS));
         List<String> listOfTeamURL = new ArrayList<>();
