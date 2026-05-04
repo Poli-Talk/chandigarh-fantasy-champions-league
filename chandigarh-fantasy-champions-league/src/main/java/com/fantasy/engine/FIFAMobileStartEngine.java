@@ -31,7 +31,7 @@ public class FIFAMobileStartEngine {
 		Client client = ClientBuilder.newBuilder().register(MultiPartFeature.class).build();
 		WebTarget target = client.target(Endpoints.FIFA_MOBILE_ENDPOINT);
 
-		for (int i = 1; i < 1300; i++) {
+		for (int i = 1; i < 500; i++) {
 
 			String fifaMobileRequestBody = Endpoints.FIFA_MOBILE_REQUEST_BODY;
 			fifaMobileRequestBody = fifaMobileRequestBody.replaceAll("pageNum", String.valueOf(i));

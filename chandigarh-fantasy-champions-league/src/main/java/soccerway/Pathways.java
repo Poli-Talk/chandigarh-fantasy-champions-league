@@ -9,6 +9,7 @@ public class Pathways {
     public static final String XPATH_ALL_UCL_TEAMS_URLS = "//div[@class='ui-table']//a[@class='tableCellParticipant__name']";
     //public static final String XPATH_ALL_UCL_TEAMS_URLS = "//div[@class='sc-94e50ec4-0 jjgGhB']//a[contains(@href,'teams')";
     public static final String XPATH_SQUAD = "//a[contains(text(),'Squad')]";
+    public static final String XPATH_TOTAL = "(//button[contains(text(),'Total')])[2]";
     //public static final String XPATH_SQUAD = "(//span[contains(text(),'Squad')])[1]";
     public static final String XPATH_STATISTICS = "(//span[contains(text(),'Statistics')])[2]";
     //public static final String XPATH_STATS_TABLE_ROW_SIZE = "//div[@id='page_team_1_block_team_squad_7']//tr";
@@ -33,30 +34,31 @@ public class Pathways {
     //public static final String XPATH_STATS_TABLE_ROW_SIZE = "//div[@class='sc-94e50ec4-0 wUawN body']";
     //public static final String XPATH_STATS_TABLE_ROW_SIZE = "//div[@id='league-04lKZTBr-table']";
     //public static final String XPATH_STATS_TABLE_ROW_SIZE = "//div[@class='lineup']";
-    public static final String XPATH_STATS_TABLE_ROW_SIZE = "(//div[contains(@class,'squad-table')])[1]//div[@class='lineupTable__row']";
+    public static final String XPATH_STATS_TABLE_ROW_SIZE = "(//div[contains(@class,'squad-table')])[ROW_NUM]//div[@class='lineupTable__row']";
     //public static final String XPATH_TEMPLATE_SHIRT_NUMBER = "(//div[@class='sc-94e50ec4-0 wUawN body'])[ROW_NUM]//span[contains(@class,'jersay')]";
-    public static final String XPATH_TEMPLATE_SHIRT_NUMBER = "((//div[contains(@class,'squad-table')])[1]//div[@class='lineupTable__row'])[ROW_NUM]//div[contains(@class,'lineupTable__cell--jersey')]";
+    public static final String XPATH_TEMPLATE_SHIRT_NUMBER = "((//div[contains(@class,'squad-table')])[TOURS]//div[@class='lineupTable__row'])[ROW_NUM]//div[contains(@class,'lineupTable__cell--jersey')]";
     //public static final String XPATH_TEMPLATE_NAME = "(//div[@class='sc-94e50ec4-0 wUawN body'])[ROW_NUM]//span[contains(@class,'name more')]";
-    public static final String XPATH_TEMPLATE_NAME = "((//div[contains(@class,'squad-table')])[1]//div[@class='lineupTable__row'])[ROW_NUM]//div[contains(@class,'lineupTable__cell--name')]";
+    public static final String XPATH_TEMPLATE_NAME = "((//div[contains(@class,'squad-table')])[TOURS]//div[@class='lineupTable__row'])[ROW_NUM]//div[contains(@class,'lineupTable__cell--name')]";
     //public static final String XPATH_TEMPLATE_MINUTES = "(//div[@class='sc-94e50ec4-0 wUawN body'])[ROW_NUM]//span[contains(@class,'running-time-row')]";
-    public static final String XPATH_TEMPLATE_MINUTES = "((//div[contains(@class,'squad-table')])[1]//div[@class='lineupTable__row'])[ROW_NUM]//div[contains(@class,'lineupTable__cell--minutesPlayed')]";
+    public static final String XPATH_TEMPLATE_MINUTES = "((//div[contains(@class,'squad-table')])[TOURS]//div[@class='lineupTable__row'])[ROW_NUM]//div[contains(@class,'lineupTable__cell--minutesPlayed')]";
     //public static final String XPATH_TEMPLATE_AGE = "((//div[@class='sc-94e50ec4-0 wUawN body'])[ROW_NUM]//span[contains(@class,'item-row')])[1]";
-    public static final String XPATH_TEMPLATE_AGE = "((//div[contains(@class,'squad-table')])[1]//div[@class='lineupTable__row'])[ROW_NUM]//div[contains(@class,'lineupTable__cell--age')]";
+    public static final String XPATH_TEMPLATE_AGE = "((//div[contains(@class,'squad-table')])[TOURS]//div[@class='lineupTable__row'])[ROW_NUM]//div[contains(@class,'lineupTable__cell--age')]";
     //public static final String XPATH_TEMPLATE_APPEARANCE = "((//div[@class='sc-94e50ec4-0 wUawN body'])[ROW_NUM]//span[contains(@class,'item-row')])[2]";
-    public static final String XPATH_TEMPLATE_APPEARANCE = "((//div[contains(@class,'squad-table')])[1]//div[@class='lineupTable__row'])[ROW_NUM]//div[contains(@class,'lineupTable__cell--matchesPlayed')]";
+    public static final String XPATH_TEMPLATE_APPEARANCE = "((//div[contains(@class,'squad-table')])[TOURS]//div[@class='lineupTable__row'])[ROW_NUM]//div[contains(@class,'lineupTable__cell--matchesPlayed')]";
     public static final String XPATH_TEMPLATE_LINEUP = "((//div[@class='sc-94e50ec4-0 wUawN body'])[ROW_NUM]//span[contains(@class,'item-row')])[3]";
     public static final String XPATH_TEMPLATE_SUB_IN = "((//div[@class='sc-94e50ec4-0 wUawN body'])[ROW_NUM]//span[contains(@class,'item-row')])[4]";
     public static final String XPATH_TEMPLATE_SUB_OUT = "((//div[@class='sc-94e50ec4-0 wUawN body'])[ROW_NUM]//span[contains(@class,'item-row')])[5]";
     public static final String XPATH_TEMPLATE_SUB_ON_BENCH = "((//div[@class='sc-94e50ec4-0 wUawN body'])[ROW_NUM]//span[contains(@class,'item-row')])[6]";
     //public static final String XPATH_TEMPLATE_GOALS = "((//div[@class='sc-94e50ec4-0 wUawN body'])[ROW_NUM]//span[contains(@class,'item-row')])[7]";
-    public static final String XPATH_TEMPLATE_GOALS = "((//div[contains(@class,'squad-table')])[1]//div[@class='lineupTable__row'])[ROW_NUM]//div[contains(@class,'lineupTable__cell--goal')]";
+    public static final String XPATH_TEMPLATE_GOALS = "((//div[contains(@class,'squad-table')])[TOURS]//div[@class='lineupTable__row'])[ROW_NUM]//div[contains(@class,'lineupTable__cell--goal')]";
     //public static final String XPATH_TEMPLATE_ASSISTS = "((//div[@class='sc-94e50ec4-0 wUawN body'])[ROW_NUM]//span[contains(@class,'item-row')])[8]";
-    public static final String XPATH_TEMPLATE_ASSISTS = "((//div[contains(@class,'squad-table')])[1]//div[@class='lineupTable__row'])[ROW_NUM]//div[contains(@class,'lineupTable__cell--assist')]";
+    public static final String XPATH_TEMPLATE_ASSISTS = "((//div[contains(@class,'squad-table')])[TOURS]//div[@class='lineupTable__row'])[ROW_NUM]//div[contains(@class,'lineupTable__cell--assist')]";
     //public static final String XPATH_TEMPLATE_YELLOW = "((//div[@class='sc-94e50ec4-0 wUawN body'])[ROW_NUM]//span[contains(@class,'item-row')])[9]";
-    public static final String XPATH_TEMPLATE_YELLOW = "((//div[contains(@class,'squad-table')])[1]//div[@class='lineupTable__row'])[ROW_NUM]//div[contains(@class,'lineupTable__cell--yellowCard')]";
+    public static final String XPATH_TEMPLATE_YELLOW = "((//div[contains(@class,'squad-table')])[TOURS]//div[@class='lineupTable__row'])[ROW_NUM]//div[contains(@class,'lineupTable__cell--yellowCard')]";
     public static final String XPATH_TEMPLATE_SECOND_YELLOW = "((//div[@class='sc-94e50ec4-0 wUawN body'])[ROW_NUM]//span[contains(@class,'item-row')])[10]";
     //public static final String XPATH_TEMPLATE_RED = "((//div[@class='sc-94e50ec4-0 wUawN body'])[ROW_NUM]//span[contains(@class,'item-row')])[11]";
-    public static final String XPATH_TEMPLATE_RED = "((//div[contains(@class,'squad-table')])[1]//div[@class='lineupTable__row'])[ROW_NUM]//div[contains(@class,'lineupTable__cell--redCard')]";
+    public static final String XPATH_TEMPLATE_RED = "((//div[contains(@class,'squad-table')])[TOURS]//div[@class='lineupTable__row'])[ROW_NUM]//div[contains(@class,'lineupTable__cell--redCard')]";
+    public static final String XPATH_TOURS = "//button[@role='tab']";
 }
 
 

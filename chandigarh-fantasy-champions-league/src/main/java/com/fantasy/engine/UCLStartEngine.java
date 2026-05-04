@@ -20,7 +20,7 @@ public class UCLStartEngine {
 
 		UCLStartEngine startEngine = new UCLStartEngine();
 
-		Client client = ClientBuilder.newBuilder().register(MultiPartFeature.class).build();
+		Client client = ClientBuilder.newBuilder().register(MultiPartFeature.class).build();	
 		WebTarget target = client.target(Endpoints.PLAYERS_ENDPOINT);
 		Response response = target.request(MediaType.APPLICATION_JSON).get();
 		String responseS = response.readEntity(String.class);
@@ -69,7 +69,12 @@ public class UCLStartEngine {
 	public void displayMatchDayPoints(String playerPopUpEndpoint, String playerPrice) {
 		Client client = ClientBuilder.newBuilder().register(MultiPartFeature.class).build();
 		WebTarget target = client.target(playerPopUpEndpoint);
-		Response response = target.request(MediaType.APPLICATION_JSON).get();
+		Response response = null;
+		try {
+			response = target.request(MediaType.APPLICATION_JSON).get();
+		} catch (Exception e) {
+			response = target.request(MediaType.APPLICATION_JSON).get();
+		}
 		String responseS = response.readEntity(String.class);
 		// System.out.println(responseS);
 

@@ -21,7 +21,6 @@ import com.google.gson.JsonParser;
 
 public class FIFAMobilePlayerInformation {
 
-	@SuppressWarnings({ "resource", "unused" })
 	public static void main(String[] args) throws IOException {
 
 		String playerData;
@@ -36,11 +35,20 @@ public class FIFAMobilePlayerInformation {
 
 			String fifaMobileRequestBody = Endpoints.FIFA_MOBILE_PLAYER_DATA;
 			fifaMobileRequestBody = fifaMobileRequestBody.replaceAll("playerid", retrivedPlayerId);
+			// System.out.println(fifaMobileRequestBody);
 
 			WebTarget target = client.target(fifaMobileRequestBody);
-			Response response = target.request(MediaType.APPLICATION_JSON).get();
-			String responseS = response.readEntity(String.class);
-			// System.out.println(responseS);
+			Response response;
+			String responseS = null;
+			try {
+				response = target.request(MediaType.APPLICATION_JSON).get();
+				responseS = response.readEntity(String.class);
+				// System.out.println(responseS);
+
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				// e.printStackTrace();
+			}
 
 			JsonParser parser = new JsonParser();
 			JsonObject fullInfoPlayerSuite = parser.parse(responseS).getAsJsonObject();
@@ -51,23 +59,30 @@ public class FIFAMobilePlayerInformation {
 			String attWorkRate = fullInfoPlayerSuite.get("workRates").getAsString().split("/")[0];
 			String defWorkRate = fullInfoPlayerSuite.get("workRates").getAsString().split("/")[1];
 			String totalStats = fullInfoPlayerSuite.get("totalStats").getAsString();
+			String clubName = fullInfoPlayerSuite.get("clubName").getAsString();
+
+			JsonObject avgStats = fullInfoPlayerSuite.getAsJsonObject("avgStats");
+			String pace = avgStats.get("avg1").getAsString();
 
 			JsonObject stats = fullInfoPlayerSuite.getAsJsonObject("stats");
+			String positioningGK = stats.get("gkp").getAsString();
+			String reflexes = stats.get("ref").getAsString();
+			String reactions = stats.get("rea").getAsString();
+			String marking = stats.get("mrk").getAsString();
+			String heading = stats.get("hea").getAsString();
 			String acceleration = stats.get("acc").getAsString();
+			String positioning = stats.get("pos").getAsString();
 			String aggression = stats.get("agg").getAsString();
-			String agility = stats.get("agi").getAsString();
-			String curve = stats.get("cur").getAsString();
+			String slidingTackle = stats.get("slt").getAsString();
+			String interceptions = stats.get("awr").getAsString();
+			String longShot = stats.get("lsa").getAsString();
+			String shotPower = stats.get("sho").getAsString();
+			String ballControl = stats.get("bac").getAsString();
+			String shortPassing = stats.get("spa").getAsString();
+			String longPassing = stats.get("lpa").getAsString();
+			String sprintSpeed = stats.get("spd").getAsString();
 			String dribbling = stats.get("dri").getAsString();
 			String finishing = stats.get("fin").getAsString();
-			String freeKick = stats.get("frk").getAsString();
-			String heading = stats.get("hea").getAsString();
-			String interceptions = stats.get("awr").getAsString();
-			String jumping = stats.get("jmp").getAsString();
-			String marking = stats.get("mrk").getAsString();
-			String penalties = stats.get("pen").getAsString();
-			String shotPower = stats.get("sho").getAsString();
-			String sprintSpeed = stats.get("spd").getAsString();
-			String strength = stats.get("str").getAsString();
 
 			String mainTrait = "";
 			JsonArray traits = fullInfoPlayerSuite.getAsJsonArray("traits");
@@ -79,11 +94,12 @@ public class FIFAMobilePlayerInformation {
 				break;
 			}
 
-			playerData = /* retrivedPlayerId + "\t" + */mainTrait + "\t" + height + "\t" + skillMove2 + "\t"
-					+ attWorkRate + "\t" + defWorkRate + "\t" + totalStats + "\t" + acceleration + "\t" + aggression
-					+ "\t" + agility + "\t" + curve + "\t" + dribbling + "\t" + finishing + "\t" + freeKick + "\t"
-					+ heading + "\t" + interceptions + "\t" + jumping + "\t" + marking + "\t" + penalties + "\t"
-					+ shotPower + "\t" + sprintSpeed + "\t" + strength + "\n";
+			playerData = clubName + "\t" + mainTrait + "\t" + height + "\t" + skillMove2 + "\t" + attWorkRate + "\t"
+					+ defWorkRate + "\t" + totalStats + "\t" + positioningGK + "\t" + reflexes + "\t" + reactions + "\t"
+					+ marking + "\t" + heading + "\t" + pace + "\t" + acceleration + "\t" + positioning + "\t"
+					+ aggression + "\t" + slidingTackle + "\t" + interceptions + "\t" + longShot + "\t" + shotPower
+					+ "\t" + ballControl + "\t" + shortPassing + "\t" + longPassing + "\t" + sprintSpeed + "\t"
+					+ dribbling + "\t" + finishing + "\n";
 
 			System.out.print(playerData);
 		}
